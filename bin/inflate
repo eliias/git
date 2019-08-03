@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ruby -r zlib -e "puts Zlib::Inflate.inflate(STDIN.read)"

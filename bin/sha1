@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'digest/sha1'
+require 'zlib'
+
+string = ARGV.first
+
+puts 'raw:'
+puts Digest::SHA1.hexdigest(string)
+
+blob = "blob #{string.bytesize}\0#{string}"
+puts 'blob:'
+puts Digest::SHA1.hexdigest(blob)
+
+zipped = Zlib::Deflate.deflate(blob)
+puts 'zipped:'
+puts Digest::SHA1.hexdigest(zipped)
