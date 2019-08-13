@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "git/cli"
+
+Git::CLI.call
